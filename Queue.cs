@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,36 +8,36 @@ namespace _20880037
 {
     class Queue
     {
-        public Node head;
-        public Node tail;
+        public QNode head;
+        public QNode tail;
         public Queue()
         {
-            head = null;
-            tail = null;
+            this.head = this.tail = null;
         }
-        public void Push(int value)
+        public void enqueue(int value)
         {
-            Node tmp = new Node(value);
-            if (head == null)
+            QNode tmp = new QNode(value);
+            if (this.tail == null)
             {
-                head = tail = tmp;
+                this.head = this.tail = tmp;
+                return;
             }
-            tail.next = tmp;
-            tail = tmp;
+            this.tail.next = tmp;
+            this.tail = tmp;
         }
-        public Node Pop()
+        public QNode dequeue()
         {
-            if (head == null)
+            if (this.head == null)
                 return null;
-            var tmp = head;
-            head = head.next;
-            if (head == null)
-                tail = null;
+            var tmp = this.head;
+            this.head = this.head.next;
+            if (this.head == null)
+                this.tail = null;
             return tmp;
         }
         public bool IsEmty()
         {
-            if (head == null)
+            if (this.head == null)
                 return true;
             else return false;
 
