@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -127,7 +127,7 @@ namespace _20880037
             {
                 return $"The position of number to find {numberToFind} is [{index}]" + " of the Array index";
             }
-        }// XUAT VI TRI
+        }
         public Queue GetOddNumber(int[] sorted)
         {
             Queue OddQueue = new Queue();
@@ -135,7 +135,7 @@ namespace _20880037
             {
                 if (number % 2 != 0)
                 {
-                    OddQueue.Push(number);
+                    OddQueue.enqueue(number);
                 }
             }
             return OddQueue;
@@ -148,22 +148,23 @@ namespace _20880037
             {
                 if (number % 2 == 0)
                 {
-                    EvenQueue.Push(number);
+                    EvenQueue.enqueue(number);
                 }
             }
             return EvenQueue;
         }
         public void WriteToFile(Queue queue)
         {
-            Node tmd = queue.head;
+            QNode tmd = queue.head;
             if (queue.head.data % 2 != 0)
             {
                 StreamWriter writer = new StreamWriter(OddNumberFilePath);
                 while (tmd != queue.tail)
                 {
-                    writer.Write(queue.Pop().data.ToString("X2") + " ");
+                    writer.Write(queue.dequeue().data.ToString("X2") + " ");
                     tmd = tmd.next;
                 }
+                writer.Write(queue.dequeue().data.ToString("X2") + " ");
                 writer.Close();
             }
 
@@ -172,9 +173,10 @@ namespace _20880037
                 StreamWriter writer = new StreamWriter(EvenNumberFilePath);
                 while (tmd != queue.tail)
                 {
-                    writer.Write(queue.Pop().data.ToString("X2") + " ");
+                    writer.Write(queue.dequeue().data.ToString("X2") + " ");
                     tmd = tmd.next;
                 }
+                writer.Write(queue.dequeue().data.ToString("X2") + " ");
                 writer.Close();
             }
 
