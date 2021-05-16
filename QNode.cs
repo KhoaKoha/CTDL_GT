@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace _20880037
 {
-     class Node
+     class QNode
     {
 
         public int data;
-        public Node next;
-        public Node(int value)
+        public QNode next;
+        public QNode(int value)
         {
             this.data = value;
-            next = null;
+            this.next = null;
         }
 
     }
